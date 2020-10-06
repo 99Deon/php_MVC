@@ -22,9 +22,20 @@ class QueryBuilder
     public function insert($table,$parameters)
     {
 
+            //get key of an array
+     
+
             //insert into %s (%s,%s) values (:id ,:name);
         
-       $sql=sprintf('insert into %s (%s) values (%s )',$table,'two','three');
+       $sql=sprintf('insert into %s (%s) values (%s)',
+                $table,
+              implode(',',array_keys($parameters)),
+                    ':'. implode(', :',array_keys($parameters)),                           
+                );
+
+      $statement=$this->pdo->prepare($sql);
+
+      $statement->execute($parameters);
 
        die(var_dump($sql));
 
