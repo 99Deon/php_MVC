@@ -27,17 +27,27 @@ class QueryBuilder
 
             //insert into %s (%s,%s) values (:id ,:name);
         
-       $sql=sprintf('insert into %s (%s) values (%s)',
+                     $sql=sprintf('insert into %s (%s) values (%s)',
                 $table,
               implode(',',array_keys($parameters)),
                     ':'. implode(', :',array_keys($parameters)),                           
                 );
 
-      $statement=$this->pdo->prepare($sql);
+      
+                try {
+                  
+                   $statement=$this->pdo->prepare($sql);
 
-      $statement->execute($parameters);
+                    $statement->execute($parameters);
 
-       die(var_dump($sql));
+                    
+                } catch (\Throwable $th) {
+                    //throw $th;
+
+                    die('Woops,something went wrong !!!');
+                }
+
+   
 
     
     }
