@@ -46,9 +46,6 @@ class QueryBuilder
 
                     die('Woops,something went wrong !!!');
                 }
-
    
-
-    
     }
 }

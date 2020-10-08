@@ -2,9 +2,19 @@
 
 class App{
 
+    protected static $registry=[];
 
-    public static function e(Type $var = null)
+    public static function bind($key,$value)
     {
-        # code...
+        static::$registry[$key]=$value;
+    }
+
+    public static function get($key)
+    {
+        if (! array_key_exists($key,static::$registry)) {
+           throw new Exception("No {$key} is bound in the container. ", 1);
+           
+        }
+        return static::$registry[$key];
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-$app = [];
+// $app = [];
 
-$app['config'] = require 'config.php';
+// $app['config'] = require 'config.php';
 
 //when add composer we do not need these things
 //           ⎷
@@ -10,7 +10,11 @@ $app['config'] = require 'config.php';
 // require 'core/Request.php';
 // require 'core/database/Connection.php';
 // require 'core/database/QueryBuilder.php';
+ 
+App::bind('config',require 'config.php');
 
-$app['database'] = new QueryBuilder(
-    Connection::make($app['config']['database'])
-);
+//die(var_dump(App::get('get'))); 
+
+App::bind('database',new QueryBuilder(
+    Connection::make(App::get('config')['database'])
+));

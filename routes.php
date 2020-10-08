@@ -1,15 +1,13 @@
 <?php
 
-$router->get('','controllers/index.php');
+$router->get('','PagesController@home');
 
-$router->get( 'about','controllers/about.php');
+$router->get( 'about','PagesController@about');
 
-$router->get('about/culture','controllers/about-culture.php');
-
-$router->get('contact','controllers/contact.php');
+$router->get('contact','PagesController@contact');
 
 
-$router->post('names','controllers/add_name.php');
+$router->post('names','controllers@add_name');
 
 
 //var_dump($router->routes);
