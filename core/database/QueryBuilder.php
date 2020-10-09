@@ -27,9 +27,7 @@ class QueryBuilder
 
             //insert into %s (%s,%s) values (:id ,:name);
         
-                     $sql=sprintf('insert into %s (%s) values (%s)',
-                $table,
-              implode(',',array_keys($parameters)),
+ $sql=sprintf('insert into %s (%s) values (%s)',$table, implode(',',array_keys($parameters)),
                     ':'. implode(', :',array_keys($parameters)),                           
                 );
 
