@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Core;
+
+
 class App{
 
     protected static $registry=[];
@@ -15,7 +18,8 @@ class App{
             
            throw new Exception("No {$key} is bound in the container. ", 1);
            
-        }
+          }
+
         return static::$registry[$key];
     }
 }

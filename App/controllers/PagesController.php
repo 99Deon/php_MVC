@@ -1,5 +1,10 @@
 <?php
 
+namespace App\Controllers;
+
+use App\Core\App;
+
+
 class PagesController {
 
 public function home(){
@@ -13,21 +18,23 @@ public function home(){
         $users = App::get('database')
                     ->selectAll('Users');
 
-        require 'views/index.view.php'; 
+        return view('index',['users'=>$users]); 
+
 
 }
 
 public function about(){
 
+        $compny="Orroros";
 
-require 'views/about.view.php';
+     return view('about',['compney'=>$compny]);
 
 }
 
 public function contact(){
 
 
-require 'views/contact.view.php';
+return view('contact');
     
 
 }

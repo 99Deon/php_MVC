@@ -1,5 +1,5 @@
 <?php require('partials/head.php'); ?>
 
-    <h1>About Us</h1>
+ <h3>Home page </h3>
 
 <?php require('partials/footer.php'); ?>

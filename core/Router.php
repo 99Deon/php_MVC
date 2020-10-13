@@ -1,5 +1,11 @@
 <?php
 
+namespace App\Core;
+
+use Exception;
+
+//use App\Controllers\PagesController;
+
 class Router
 {
     protected $routes = [
@@ -59,7 +65,7 @@ class Router
 
     protected function callAction($controller,$action)
         {
-
+            $controller="App\\Controllers\\{$controller}";
         
             if(! method_exists($controller,$action))
             {
@@ -73,6 +79,8 @@ class Router
 
                 new PagesController ()->about();
             */
+          
+
             return(new $controller)->$action();   
         }
 
